@@ -38,9 +38,9 @@
 
 #define LED_KR1		PB0 // A Pin5: Led / Andreaskreuz'1						 = 2 Leds on both directions right beside the street 
 #define LED_KR2		PB1 // A Pin6: Led / Andreaskreuz'2						 = 2 Leds on both directions left beside the street 
-#define LED_BUE 	PB2 // A Pin7: Led / Bü1 - Überwachnungssignal = 2 Leds on both directions right beside the track 
+#define SEND_RM		PB2 // A Pin7: 0 = Warnlicht ist ein					 = feedback to control-panel
 #define SET_ON		PB3 // E Pin2: 0 = Warnlicht einschalten			 = switch on the lights
-#define SEND_RM		PB4 // A Pin3: 0 = Warnlicht ist ein					 = feedback to control-panel
+#define LED_BUE 	PB4 // A Pin3: Led / Bü1 - Überwachnungssignal = 2 Leds on both directions right beside the track 
 
 bool bOut(false);
 uint8_t iPWM(0); // 0..255 leads to 0,4352s fading time
