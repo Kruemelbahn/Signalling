@@ -4,6 +4,7 @@
  * Signal-Steuerung für Zs-Signale
  *
  * used on Signal Zsx
+ * Fuses for ATtiny13: L = 0x6A, H = 0xFF (default)
  * 
  * Created: 10.11.2022 17:00
  * Author : Michael
@@ -57,6 +58,15 @@ void init_timer()
 	sei();
 }
 
+// stop Timer
+void stop_timer()
+{
+	cli();
+	TCCR0A = 0;
+	TCCR0B = 0;
+	TIMSK0 = 0;
+}
+
 // Timer Interrupt
 ISR(TIM0_OVF_vect)
 {
@@ -81,12 +91,13 @@ int main(void)
 	OCR0A = 0;
 	OCR0B = 0;
 
-	init_timer();	// enables interrupts also...
-	
   while (1)
   {
     if(bit_is_clear(PINB, SET_SH1))
-      bOut = true;
+		{
+			init_timer();	// enables interrupts also...
+			bOut = true;
+		}
     else
 			if(bit_is_clear(PINB, SET_SH0))
 				bOut = false;
@@ -100,6 +111,12 @@ int main(void)
 		// show signal
 		OCR0A = iPWM;
 		OCR0B = iPWM;
+		if(!bOut && !iPWM)	// PB0, PB1
+		{
+			stop_timer();
+			PORTB &= ~((1 << LED_ZS2) | (1 << LED_ZS3));
+		}
+		
   }
   return 0;
 }

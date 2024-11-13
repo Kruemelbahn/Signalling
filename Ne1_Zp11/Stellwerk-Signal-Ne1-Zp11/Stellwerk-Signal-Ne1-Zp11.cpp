@@ -4,6 +4,7 @@
  * Signal-Steuerung für Zp11 an Ne1-Signalen (Trapeztafel)
  *
  * used on Signal Ne1
+ * Fuses for ATtiny13: L = 0x6A, H = 0xFF (default)
  * 
  * Created: 14.05.2023 12:00
  * Author : Michael
@@ -56,6 +57,15 @@ void init_timer()
 	TIMSK0 = (1 << TOIE0);
 	// enable interrupts
 	sei();
+}
+
+// stop Timer
+void stop_timer()
+{
+	cli();
+	TCCR0A = 0;
+	TCCR0B = 0;
+	TIMSK0 = 0;
 }
 
 // Timer Interrupt
@@ -116,12 +126,11 @@ int main(void)
   OCR0A = 0;
   OCR0B = 0;
 
-  init_timer();	// enables interrupts also...
-	
   while (1)
   {
     if(!bOut && (iTakt == 0) && bit_is_set(PINB, SET_ZP11))
   	{
+		  init_timer();	// enables interrupts also...
       iTakt = 1;
       bOut = true;
 	  }
@@ -141,6 +150,11 @@ int main(void)
 	
 	  // set output as analog-value using PB0 as analog out
 	  OCR0A = iPWM;
+		if(!bOut && !iPWM)	// PB1
+		{
+			stop_timer();
+			PORTB &= ~((1 << LED_ZP11_A) | (1 << LED_ZP11_D));
+		}
 	
 	  // set output as digital-value
 	  if(bOutOn)
