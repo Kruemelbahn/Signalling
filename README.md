@@ -7,5 +7,5 @@ Ist eine kleine Sammlung von Signalansteuerungen auf meiner Modellbahn
 - Bue zeigt die Hard- und Software für Signale an einem Bahnübergang: Wechselblinken für die Andreaskreuze und einfaches Blinken für das Überwachungssignal Bü1.
   Diese Software gibt es in zwei Versionen:
   - mit Ein-Aus-Schalter und 
-  - mit einem Ein-Taster und automatischem Ausschalten nach Zeit (aktuell ca. 14s)
+  - mit einem Ein-Taster und automatischem Ausschalten nach Zeit (aktuell ca. 15s)
 
