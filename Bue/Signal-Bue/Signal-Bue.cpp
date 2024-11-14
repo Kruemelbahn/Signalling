@@ -4,7 +4,6 @@
  * Licht-Steuerung für einen Bahnübergang
  *
  * used on Lichtcomputer with ATtiny13
- * Jumper on Lichtcomputer: J1 = open, J2 = closed, PB3(Pin2) is used as input
  * Fuses for ATtiny13: L = 0x6A, H = 0xFF (default)
  * 
  * Created: 12.11.2024 15:00
@@ -36,11 +35,11 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-#define LED_KR1		PB0 // A Pin5: Led / Andreaskreuz'1						 = 2 Leds on both directions right beside the street 
-#define LED_KR2		PB1 // A Pin6: Led / Andreaskreuz'2						 = 2 Leds on both directions left beside the street 
+#define LED_KR1		PB0 // A Pin5: Led / Andreaskreuz'1						 = 2 Leds on both directions right beside the street
+#define LED_KR2		PB1 // A Pin6: Led / Andreaskreuz'2						 = 2 Leds on both directions left beside the street
 #define SEND_RM		PB2 // A Pin7: 0 = Warnlicht ist ein					 = feedback to control-panel
 #define SET_ON		PB3 // E Pin2: 0 = Warnlicht einschalten			 = switch on the lights
-#define LED_BUE 	PB4 // A Pin3: Led / Bü1 - Überwachnungssignal = 2 Leds on both directions right beside the track 
+#define LED_BUE 	PB4 // A Pin3: Led / Bü1 - Überwachnungssignal = 2 Leds on both directions right beside the track
 
 bool bOut(false);
 uint8_t iPWM(0); // 0..255 leads to 0,4352s fading time
