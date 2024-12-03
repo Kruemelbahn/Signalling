@@ -10,3 +10,10 @@
   - mit einem Ein-Taster und automatischem Ausschalten nach Zeit (aktuell ca. 15s)
 - die Ansteuerung eines (analog gesteuerten) Hauptsignal (optional mit Vorsignal und Blocksteuerung) steht hier [Signal-Z](http://www.github.com/Kruemelbahn/Signal-Z) zur Verfügung
 
+Der Quellcode wird nur benötigt, wenn
+- nan neugierig ist
+- oder den Quellcode ändern und somit neu kompilieren möchte.
+Zum Kompilieren wird ein AVR-Compiler (z.B. das ATMEL-Studio) benötigt.
+
+Ansonsten reichen die Hex-Dateien völlig aus, diese werden in den ATtiny13 geflasht.
+Die Software auf dem ATtiny13 läuft mit den Default-Fuses: low=0x6A high=0xFF.
