@@ -8,7 +8,7 @@
   Diese Software gibt es in zwei Versionen:
   - mit Ein-Aus-Schalter und 
   - mit einem Ein-Taster und automatischem Ausschalten nach Zeit (aktuell ca. 15s)
-- die Ansteuerung eines (analog gesteuerten) Hauptsignal (optional mit Vorsignal und Blocksteuerung) steht hier [Signal-Z](http://www.github.com/Kruemelbahn/Signal-Z) zur Verfügung
+- die Ansteuerung eines (analog gesteuerten) Hauptsignal (optional mit Vorsignal und Blocksteuerung) steht hier [Signal-Z](https://www.github.com/Kruemelbahn/Signal-Z) zur Verfügung
 
 Der Quellcode wird nur benötigt, wenn
 - nan neugierig ist
